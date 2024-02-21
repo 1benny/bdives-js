@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Admin (me)</h1>
+    <form action="" id="loginForm">
+        <input valign="top", type="text" placeholder="Username" id="user_name">
+        <br>
+        <br>
+        <input type="password" placeholder="Password" id="pass_word">
+        <br>
+        <br>
+        <input type="submit" value="Submit" />
+        <input width="2px" type="reset" value="Reset" />
+    </form>
+</body>
+<script>
+    function redirect(user) {
+        open("./access.html")
+        console.log("User:", user,"\nhas accessed the access page")
+    }
+
+    let loginForm = document.getElementById("loginForm")
+
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let username = document.getElementById("user_name");
+        let password = document.getElementById("pass_word");
+
+
+        if (username.value == "me" && password.value == "1234") {
+            console.log("Username and password correct")
+
+            redirect(user=username.value)
+        
+        } else if (username.value == "me" || password.value != "1234") {
+            console.log("Incorrect password")
+        } else if (password.value == "1234" || username.value != "me") {
+            console.log("Incorrect username")
+        } else {
+            console.log("Incorrect username and password.")
+        }
+    });
+</script>
+</html>
